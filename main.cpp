@@ -1,22 +1,21 @@
 #include <iostream>
 
+int GetInput (std::string text){
+	
+	int x {};
+	std::cout << text;
+	std::cin >> x;
+	return x;
+	}
+
+
 int main(){
 
-	std::cout << "Chosse the unit of the file you are downloading: 1=KB 2=MB 3=GB 4=TB ";
-	int FileUnit {};
-	std::cin  >> FileUnit;
+	int FileUnit {GetInput("Choose the unit of the file you are downloading: 1=KB, 2=MB, 3=GB, 4=TB ")};
+	double FileSize = GetInput("The size of the file in the given unit: ");
+	int DownloadSpeedUnit {GetInput("Choose the unit of your download speed: 1=Kbps 2=Mbps 3=Gbps 4=KBps 5=MBps 6=GBps ")};
+	double DownloadSpeed = GetInput("Download speed in the given unit: ");
 	
-	std::cout << "The size of the file in the given unit:  ";
-	double FileSize {};
-	std::cin >> FileSize;
-
-	std::cout << "Choose the unit of your download speed: 1=Kbps 2=Mbps 3=Gbsp 4=KBps 5=MBps 6=GBps ";
-	int DownloadSpeedUnit {};
-	std::cin >> DownloadSpeedUnit;
-
-	std::cout << "Download speed in the given unit: ";
-	double DownloadSpeed {};
-	std::cin >> DownloadSpeed;
 	if (DownloadSpeedUnit < 4){
 		DownloadSpeedUnit = DownloadSpeedUnit + 3;
 		DownloadSpeed = DownloadSpeed / 8;
